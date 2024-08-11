@@ -1,11 +1,9 @@
-package com.telusko.ecom_proj.service;
+package com.ecom_proj.service;
 
-import com.telusko.ecom_proj.model.Product;
-import com.telusko.ecom_proj.repo.ProductRepo;
+import com.ecom_proj.model.Product;
+import com.ecom_proj.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

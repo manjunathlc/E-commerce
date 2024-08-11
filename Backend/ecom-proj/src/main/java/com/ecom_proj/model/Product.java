@@ -1,4 +1,4 @@
-package com.telusko.ecom_proj.model;
+package com.ecom_proj.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
