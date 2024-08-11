@@ -28,8 +28,6 @@ public class ProductService {
         }
 
         return null;
-        // throws NoSuchElementException if not found
-//       return repo.findById(id).orElse(null); // returns Optional<Product>
     }
 
     public Product addProduct(Product product, MultipartFile imageFile) throws IOException {
@@ -41,21 +39,6 @@ public class ProductService {
 
     public Product updateProduct(int id, Product product, MultipartFile imageFile) throws IOException {
         Product existingProduct = repo.findById(id).orElse(null);
-//        if (existingProduct == null) {
-//            return null;
-//        }
-//
-//        existingProduct.setName(product.getName());
-//        existingProduct.setPrice(product.getPrice());
-//        existingProduct.setStockQuantity(product.getStockQuantity());
-//
-//        if (imageFile!= null) {
-//            existingProduct.setImageName(imageFile.getOriginalFilename());
-//            existingProduct.setImageType(imageFile.getContentType());
-//            existingProduct.setImageData(imageFile.getBytes()); // save the image data in the database
-//        }
-//
-//        return repo.save(existingProduct);
 
         product.setImageData(imageFile.getBytes()); // save the image data in the database
         product.setImageName(imageFile.getOriginalFilename());

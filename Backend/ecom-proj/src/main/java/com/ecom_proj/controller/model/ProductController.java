@@ -29,7 +29,6 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
-        //return service.getAllProducts().stream().filter(product -> product.getId() == id).findFirst().orElse(null);
 
         Product product = service.getProductById(id);
         if (product == null) {
@@ -52,16 +51,6 @@ public class ProductController {
 
     @GetMapping("/product/{productId}/image")
     public ResponseEntity<?> getImageById(@PathVariable int productId) {
-
-//        try {
-//            Product product = service.getProductById(productId);
-//            if (product == null) {
-//                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//            }
-//            return new ResponseEntity<>(product.getImage(), HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
 
         Product product = service.getProductById(productId);
         byte[] imageData = product.getImageData();
@@ -88,10 +77,6 @@ public class ProductController {
 
     @DeleteMapping("/product/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable int id) {
-//        if (!service.deleteProduct(id)) {
-//            return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
-//        }
-//        return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
 
         Product product = service.getProductById(id);
         if (product == null) {
@@ -101,11 +86,6 @@ public class ProductController {
         return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
     }
 
-//    @GetMapping("/search")
-//    @RequestParam(required = false)
-//    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
-//
-//    }
     @GetMapping("/products/search")
     public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword) {
         System.out.println("searching for: " + keyword); // logging for debugging purposes
@@ -116,4 +96,3 @@ public class ProductController {
 
 }
 
-//<i class="bi bi-currency-rupee"></i>
